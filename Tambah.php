@@ -1,17 +1,15 @@
 <?php
-// tambah.php
 
 require_once "Database.php";
 require_once "Produk.php";
 
-// Pindahkan ini ke luar IF agar koneksi langsung dicoba saat halaman dibuka
 $db = new Database();
 $produk = new Produk($db->getConnection());
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $produk->tambah($_POST['nama'], $_POST['harga'], $_POST['stok']);
     
-    header("Location: index.php"); // kembali ke daftar
+    header("Location: index.php");
     exit;
 }
 ?>
